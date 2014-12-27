@@ -335,7 +335,7 @@ var spamc = function (host, port, timeout) {
      */
     var processResponse = function (cmd, lines) {
         var returnObj = {};
-        var result = lines[0].match(/SPAMD\/([0-9\.]+)\s([0-9]+)\s([0-9A-Z_]+)/);
+        var result = lines[0].match(/SPAMD\/([0-9\.\-]+)\s([0-9]+)\s([0-9A-Z_]+)/);
         if (!result) {
             throw new Error('spamd unreconized response:' + lines[0]);
         }
