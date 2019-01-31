@@ -377,12 +377,14 @@ var spamc = function (host, port, timeout) {
                         /* Match Sections */
                         pattern = /(\s|-)([0-9\.]+)\s([A-Z0-9\_]+)\s([^:]+)\:\s([^\s]+)/;
                         var matches = result[ii].match(pattern);
-                        returnObj.report[returnObj.report.length] = {
-                            score: matches[2],
-                            name: matches[3],
-                            description: matches[4].replace(/^\s*([\S\s]*)\b\s*$/, '$1'),
-                            type: matches[5]
-                        };
+                        if (matches !== null) {
+                            returnObj.report[returnObj.report.length] = {
+                                score: matches[2],
+                                name: matches[3],
+                                description: matches[4].replace(/^\s*([\S\s]*)\b\s*$/, '$1'),
+                                type: matches[5]
+                            };
+                        }
                     }
                 }
 
